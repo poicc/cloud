@@ -1,5 +1,7 @@
 package com.crq.user.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.crq.user.common.ResponseResult;
 import com.crq.user.common.ResultCode;
 import com.crq.user.domain.dto.UserDto;
@@ -24,12 +26,13 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("{id}")
+    @SentinelResource(value = "getUserById",blockHandler = "getUserBlock")
     public ResponseResult getUserById(@PathVariable Integer id) {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         return ResponseResult.success(userService.findById(id));
     }
 
@@ -41,5 +44,11 @@ public class UserController {
         } else {
             return ResponseResult.success(user);
         }
+    }
+
+    public ResponseResult getUserBlock(BlockException exception) {
+        log.info("接口被限流");
+        log.info(exception.toString());
+        return  ResponseResult.failure(ResultCode.INTERFACE_EXCEED_LOAD);
     }
 }

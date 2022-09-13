@@ -24,3 +24,8 @@ spring:
           - dataId: redis-config.yml
             group: EXT_GROUP
             refresh: true
+
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080

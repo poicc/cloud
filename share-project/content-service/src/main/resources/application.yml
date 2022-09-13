@@ -2,6 +2,6 @@ server:
   port: 8082
 
 
-logging:
-  level:
-    com.crq.content.openfeign.UserService: debug
+#logging:
+#  level:
+#    com.crq.content.openfeign.UserService: debug
