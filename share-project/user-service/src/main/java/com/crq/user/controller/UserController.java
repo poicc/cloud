@@ -25,6 +25,11 @@ public class UserController {
 
     @GetMapping("{id}")
     public ResponseResult getUserById(@PathVariable Integer id) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return ResponseResult.success(userService.findById(id));
     }
 
