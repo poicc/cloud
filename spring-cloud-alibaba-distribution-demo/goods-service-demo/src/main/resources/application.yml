@@ -1,0 +1,16 @@
+server:
+  port: 8151
+spring:
+  application:
+    name: cloud-goods-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.196.153.80:8849
+        password: nacos
+        username: nacos
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test_distribution_goods_db?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: root
+    password: 12345678

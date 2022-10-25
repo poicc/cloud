@@ -11,8 +11,19 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>order-service-demo</artifactId>
-
-
     <name>order-service-demo</name>
+
+    <dependencies>
+        <!-- jdbc-starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!-- MySQL 驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
